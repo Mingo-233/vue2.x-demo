@@ -14,7 +14,16 @@ const routes = [
     path: '/demo',
     name: 'demo',
     component: () => import(/* webpackChunkName: "about" */ '../views/demo.vue')
-
+  },
+  {
+    path: '/Treecom',
+    name: 'Treecom',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Treecom.vue')
+  },
+  {
+    path: '/tablecom',
+    name: 'tablecom',
+    component: () => import(/* webpackChunkName: "about" */ '../views/tablecom.vue')
   },
   {
     path: '/about',
