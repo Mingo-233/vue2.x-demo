@@ -88,7 +88,7 @@ export default {
         label: '三级 1-1-1'
       }])
     },
-    setCheckedKeys () {
+    setCheckedKeys () { 
       this.data[2].children[0].disabled = false
 
       this.$refs.tree.setCheckedKeys([3])
