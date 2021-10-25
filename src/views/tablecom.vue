@@ -12,23 +12,27 @@
       </el-table-column>
       <el-table-column prop="name"
                        label="姓名"
-                       width="180">
+                       width="320">
       </el-table-column>
       <el-table-column prop="address"
-                       label="地址">
+                       label="地址"
+                        width="320">
       </el-table-column>
       <el-table-column v-for="(item,i) in testDate"
-                      :key="Math.random()"
-                      :prop="testDate[i].prop"
-                       :label="testDate[i].name">
-                       <template slot-scope="{row}">
-                         <span>{{item.prop}} </span>
-                         <i>{{row}}</i>
-                       </template>
+      width="200px"
+      ref="eltablec"
+                       :key="Math.random()"
+                       :prop="testDate[i].prop"
+                       :label="testDate[i].name +num">
+        <template slot-scope="{row}">
+           <!-- <span>{{item.prop}} </span> -->
+          <i>{{row}}</i>
+          <!-- <span>{{Math.random()}}</span> -->
+        </template>
       </el-table-column>
 
     </el-table>
-    <p>1231</p>
+    <p>{{num}}</p>
     <button @click="update">uptad</button>
   </div>
 </template>
@@ -68,24 +72,45 @@ export default {
       testDate: [{
         date: '2sadasd',
         name: 'mock111',
-        prop: 'aa',
-        t: Math.random()
+        prop: 'aa'
       },
       {
         date: '2sadasd',
         name: 'mock1222',
-        prop: 'bb',
-        t: Math.random()
+        prop: 'bb'
 
       },
       {
         date: '2sadasd',
         name: 'mock333',
-        prop: 'cc',
-        t: Math.random()
-
-      }]
-
+        prop: 'cc'
+      },
+      {
+        date: '2sadasd',
+        name: 'mock333',
+        prop: 'cc'
+      },
+      {
+        date: '2sadasd',
+        name: 'mock333',
+        prop: 'cc'
+      },
+      {
+        date: '2sadasd',
+        name: 'mock333',
+        prop: 'cc'
+      },
+      {
+        date: '2sadasd',
+        name: 'mock333',
+        prop: 'cc'
+      },
+      {
+        date: '2sadasd',
+        name: 'mock333',
+        prop: 'cc'
+      }],
+      num: 0
     }
   },
   methods: {
@@ -93,8 +118,10 @@ export default {
       console.log(column)
     },
     update () {
-      this.$forceUpdate()
-      console.log('zhixingle')
+      // this.$forceUpdate()
+      this.num++
+      console.log(this.$refs.eltablec)
+      // this.testDate.push({ date: '22', name: 'xiba', prop: 'cc' })
     }
   },
   mounted () {
