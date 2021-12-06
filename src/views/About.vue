@@ -4,26 +4,31 @@
     <header-label :content="msg">
       <template v-slot:toolTip>oknk</template>
     </header-label>
+    <MyInput v-model="input" :disabled="false" :errorTip="errorTip" @blur="handleBlur"></MyInput>
   </div>
 </template>
 
 <script>
 // import headerLabel from '../components/headerLabelComponent.vue'
-
+import MyInput from '../components/my-input.vue'
 export default {
   name: '',
   data () {
     return {
-      msg: '个人信息'
+      msg: '个人信息',
+      errorTip: '1111',
+      input: ''
     }
   },
   methods: {
     hanlde () {
-      console.log(1)
+      console.log('hanlde')
+    },
+    handleBlur () {
+      console.log('blur')
     }
   },
   mounted () {
-    this.hanlde()
   },
   activated () {
     console.log('acc')
@@ -46,11 +51,9 @@ export default {
         vnodes.push(<div>wdnm</div>)
         console.log(vnodes)
         return vnodes
-        // return h(appropriateListComponent(),
-        //   context.data,
-        //   context.children)
       }
-    }
+    },
+    MyInput
   }
 }
 </script>
