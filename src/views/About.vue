@@ -5,6 +5,7 @@
       <template v-slot:toolTip>oknk</template>
     </header-label>
     <MyInput v-model="input" :disabled="false" :errorTip="errorTip" @blur="handleBlur"></MyInput>
+    <el-button @click="openDialog">confirm dialog</el-button>
   </div>
 </template>
 
@@ -26,6 +27,18 @@ export default {
     },
     handleBlur () {
       console.log('blur')
+    },
+    openDialog () {
+      this.$confirmm({
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(res => {
+        console.log(res)
+        console.log(22)
+      }).catch(err => {
+        console.log(err)
+      })
     }
   },
   mounted () {
